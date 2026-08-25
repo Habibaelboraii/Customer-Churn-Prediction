@@ -233,7 +233,7 @@ to process the input data and generate the prediction.
 
 **Streamlit App:**
 
-``
+`https://customer-churn-prediction-he24.streamlit.app/`
 
 ---
 
