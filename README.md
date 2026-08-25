@@ -117,8 +117,8 @@ Several classification models were explored and evaluated, including:
 
 * **Logistic Regression**
 * **Support Vector Machine (SVM)**
-* **ٌRandom Forest**
-* **ٌDecision Tree**
+* **Random Forest**
+* **Decision Tree**
 * **XGBoost**
 
 The models were compared using multiple evaluation metrics to select the most suitable model for the churn prediction task.
@@ -147,28 +147,45 @@ The models were evaluated using:
 
 The final model used in the deployed application is:
 
-**XGBoost Classifier**
+**Logistic Regression**
 
-XGBoost was selected based on its overall performance on the evaluation metrics.
+Logistic Regression was selected as the final model because it achieved the **highest Recall and F1-Score** among the evaluated models.
+
+For a customer churn problem, Recall is particularly important because the goal is to identify as many potential churn customers as possible.
 
 ### 📊 Final Model Performance
 
 | Metric    |        Score |
 | --------- | -----------: |
-| Accuracy  | `0,78` |
-| Precision | `0.548077` |
-| Recall    | `0.655172` |
-| F1-Score  | `0.596859` |
+| Accuracy  | **0.727466** |
+| Precision | **0.470874** |
+| Recall    | **0.836207** |
+| F1-Score  | **0.602484** |
 
-> Replace `YOUR_SCORE` with the actual results of your final XGBoost model.
+### 📌 Model Comparison
+
+| Model                      |     Accuracy | Precision |       Recall |     F1-Score |
+| -------------------------- | -----------: | --------: | -----------: | -----------: |
+| **Logistic Regression** 🏆 | **0.727466** |  0.470874 | **0.836207** | **0.602484** |
+| XGBoost                    |     0.781405 |  0.548077 |     0.655172 |     0.596859 |
+| Random Forest              |     0.781405 |  0.549751 |     0.635057 |     0.589333 |
+| Decision Tree              |     0.758694 |  0.508696 |     0.672414 |     0.579208 |
+| SVM                        |     0.743790 |  0.486486 |     0.672414 |     0.564536 |
 
 ---
 
-## ⭐ Why XGBoost?
+## ⭐ Why Logistic Regression?
 
-XGBoost was selected as the final model because it provided strong classification performance for the customer churn prediction problem.
+Logistic Regression was selected as the final model based on the project's main objective: **identifying customers who are likely to churn**.
 
-It can capture nonlinear relationships between customer features and the target variable and works effectively with structured/tabular data.
+Although XGBoost and Random Forest achieved higher accuracy, Logistic Regression achieved:
+
+* The **highest Recall (83.62%)**
+* The **highest F1-Score (60.25%)**
+
+A high Recall is especially important in churn prediction because missing a potential churn customer can result in losing that customer.
+
+Therefore, Logistic Regression provides a better choice for this project when the priority is to identify as many potential churn customers as possible.
 
 ---
 
@@ -189,7 +206,7 @@ Encoding
         ↓
 Scaling
         ↓
-XGBoost Model
+Logistic Regression Model
         ↓
 Churn Prediction
 ```
@@ -206,7 +223,7 @@ or
 
 The application uses the saved:
 
-* XGBoost model
+* Logistic Regression model
 * Encoder
 * Scaler
 
@@ -226,7 +243,7 @@ to process the input data and generate the prediction.
 customer-churn-prediction/
 │
 ├── app.py
-├── xgb_model.pkl
+├── logistic_model.pkl
 ├── scaler.pkl
 ├── encoder.pkl
 ├── requirements.txt
@@ -308,7 +325,7 @@ Hyperparameter Tuning
    ↓
 Model Evaluation
    ↓
-XGBoost Final Model
+Logistic Regression Final Model
    ↓
 Streamlit Application
    ↓
@@ -334,10 +351,11 @@ This project was developed as part of my training at **Epsilon AI Academy Egypt*
 Possible future improvements include:
 
 * Improving model performance through additional feature engineering.
-* Trying additional ensemble models.
+* Exploring different classification algorithms.
+* Optimizing the decision threshold to improve churn detection.
 * Adding customer churn probability.
 * Improving the Streamlit user interface.
-* Adding model explainability using SHAP.
+* Adding model explainability.
 * Deploying the application publicly.
 
 ---
@@ -347,4 +365,3 @@ Possible future improvements include:
 **Habiba Saber**
 
 Machine Learning / Data Science Enthusiast
-
