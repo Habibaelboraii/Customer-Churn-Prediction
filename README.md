@@ -275,7 +275,7 @@ customer-churn-prediction/
 ### 1. Clone the Repository
 
 ```bash
-
+ https://github.com/Habibaelboraii/Customer-Churn-Prediction
 ```
 
 ### 2. Navigate to the Project Directory
